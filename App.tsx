@@ -7,7 +7,7 @@ export default function App() {
   return (
     <SafeAreaProvider>
       <NavigationContainer>
-        <StatusBar style="auto" />
+        <StatusBar style="dark" backgroundColor="#E9E600" />
         <MainDrawer />
       </NavigationContainer>
     </SafeAreaProvider>

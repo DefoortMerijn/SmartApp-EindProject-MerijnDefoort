@@ -8,6 +8,7 @@ import { Keyboards } from './DrawerNav/Keyboards'
 import { Mouse } from './DrawerNav/Mouse'
 import { Image } from 'react-native'
 import Header from '../components/header'
+import { Menu } from 'lucide-react'
 
 const Drawer = createDrawerNavigator()
 
@@ -15,22 +16,31 @@ export const MainDrawer = () => {
   const screenoptions: DrawerNavigationOptions = {
     drawerStyle: {
       backgroundColor: '#262626',
+      paddingTop: 60,
+      
     },
+    swipeEnabled: true,
+    headerTintColor: '#fff',
+    headerPressOpacity: 0.5,
     drawerInactiveTintColor: '#ffffff',
     drawerActiveBackgroundColor: '#E9E600',
     drawerActiveTintColor: '#000000',
+    
     headerStyle: {
-      backgroundColor: '#E9E600',
+      backgroundColor: '#262626',
+      borderBottomColor: '#fff',
+      borderBottomWidth: 1,
     },
   }
 
   return (
-    <Drawer.Navigator screenOptions={screenoptions}>
+    <Drawer.Navigator screenOptions={screenoptions} >
       <Drawer.Screen
         name="Home"
         component={Home}
+        
         options={{
-          headerTitle: (props) => <Header />,
+          headerTitle: () => <Header />,
         }}
       />
       <Drawer.Screen

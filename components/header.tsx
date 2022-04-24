@@ -5,13 +5,11 @@ export default () => {
     <View>
       <Image
         style={{
-          width: 20,
-          height: 10,
-          resizeMode: 'contain',
-          borderColor: 'black',
-          borderWidth: 1,
+          width: 120,
+          height: 30,
+          tintColor: '#fff',
         }}
-        source={require('../assets/corsair-logo.svg')}
+        source={require('../assets/corsair-logo.png')}
       />
     </View>
   )
