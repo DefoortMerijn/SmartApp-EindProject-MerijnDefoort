@@ -1,0 +1,22 @@
+[
+  {
+    "id": "1",
+    "name": "Corsair K50 RGB",
+    "price": 1999.90,
+    "salePercentage": 0,
+    "image":
+      "https://www.corsair.com/medias/sys_master/images/images/ha3/h75/9456085925918/-CH-9127414-NA-Gallery-K95-PLATINUM-RGB-XT-01.png",
+    "description": "Corsair K50 RGB Gaming Keyboard",
+    "category": "Keyboard"
+    },
+  {
+    "id": "2",
+    "name": "Corsair K59 RGB",
+    "price": 1999.00,
+    "salePercentage": 20,
+    "image":
+      "https://www.corsair.com/medias/sys_master/images/images/ha3/h75/9456085925918/-CH-9127414-NA-Gallery-K95-PLATINUM-RGB-XT-01.png",
+    "description": "Corsair K50 RGB Gaming Keyboard",
+    "category": "Keyboard"
+  }
+]
