@@ -2,8 +2,9 @@ import {
   createStackNavigator,
   StackNavigationOptions,
 } from '@react-navigation/stack'
+import { Cart } from '../../Cart'
 
-import { Detail } from '../Detail'
+import { Detail } from '../../Detail'
 import { Ram } from './Ram'
 
 const Stack = createStackNavigator()
@@ -16,6 +17,7 @@ export const RamStack = () => {
     <Stack.Navigator screenOptions={screenOptions}>
       <Stack.Screen name="Ramm" component={Ram} />
       <Stack.Screen name="Detail" component={Detail} />
+
     </Stack.Navigator>
   )
 }

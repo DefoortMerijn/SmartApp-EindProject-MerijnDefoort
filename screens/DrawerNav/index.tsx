@@ -2,20 +2,18 @@ import {
   createDrawerNavigator,
   DrawerNavigationOptions,
 } from '@react-navigation/drawer'
-import { Home } from './Home'
+import { Home } from '../Home'
 import 'react-native-gesture-handler'
-import { KeyboardStack } from './DrawerNav/Keyboard/index'
-import { MouseStack } from './DrawerNav/Mouse/index'
-import { LightStack } from './DrawerNav/Lights/index'
-import { RamStack } from './DrawerNav/Ram'
-import { PowerSupplyStack } from './DrawerNav/PowerSupply'
-import Header from '../components/Header'
-import { CoolingStack } from './DrawerNav/Cooling'
-import Icons from '../components/Icons'
-import { Badge, Icon, withBadge } from 'react-native-elements'
+import { KeyboardStack } from './Keyboard/index'
+import { MouseStack } from './Mouse/index'
+import { LightStack } from './Lights/index'
+import { RamStack } from './Ram'
+import { PowerSupplyStack } from './PowerSupply'
+import Header from '../../components/Header'
+import { CoolingStack } from './Cooling'
+import Icons from '../../components/Icons'
 
 const Drawer = createDrawerNavigator()
-const BadgedIcon = withBadge(1)(Icon)
 
 export const MainDrawer = () => {
   const screenoptions: DrawerNavigationOptions = {
@@ -28,7 +26,7 @@ export const MainDrawer = () => {
     drawerInactiveTintColor: '#ffffff',
     drawerActiveBackgroundColor: '#E9E600',
     drawerActiveTintColor: '#000000',
-    headerRight: () => <Icons />,
+    headerRight: () => <Icons  />,
     headerRightContainerStyle: {
       marginRight: 10,
     },

@@ -1,7 +1,6 @@
 import {} from 'react-native-vector-icons/AntDesign'
 import { Image, View } from 'react-native'
-import { TouchableOpacity } from 'react-native-gesture-handler'
-import { Icon } from 'react-native-elements'
+
 
 export default () => {
   return (

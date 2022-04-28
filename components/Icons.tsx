@@ -2,7 +2,7 @@ import { View } from 'react-native'
 import { Badge, Icon, withBadge } from 'react-native-elements'
 import { TouchableOpacity } from 'react-native-gesture-handler'
 
-export default () => {
+export default (navigation: any) => {
   const Cart = () => console.log('Cart')
   const Profile = () => console.log('Profile')
 
@@ -21,7 +21,6 @@ export default () => {
           color={'white'}
           reverseColor={'black'}
           size={30}
-
         />
       </TouchableOpacity>
       <TouchableOpacity onPress={Profile} style={{ marginLeft: 20 }}>

@@ -3,7 +3,7 @@ import {
   StackNavigationOptions,
 } from '@react-navigation/stack'
 
-import { Detail } from '../Detail'
+import { Detail } from '../../Detail'
 import { Lights } from './Lights'
 
 const Stack = createStackNavigator()

@@ -3,7 +3,7 @@ import {
   StackNavigationOptions,
 } from '@react-navigation/stack'
 
-import { Detail } from '../Detail'
+import { Detail } from '../../Detail'
 import { Mice } from './Mice'
 
 const Stack = createStackNavigator()

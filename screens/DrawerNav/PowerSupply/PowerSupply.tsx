@@ -8,7 +8,7 @@ export const PowerSupplies = ({ navigation }: { navigation: any }) => {
   useEffect(() => {
     const fetchData = async () => {
       const res = await fetch(
-        `http://192.168.0.191:5000/articles/category/PowerSupply`,
+        `http://172.30.96.43:5000/articles/category/PowerSupply`,
       )
       const json = await res.json()
       console.log(json)

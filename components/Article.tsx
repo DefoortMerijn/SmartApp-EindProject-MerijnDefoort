@@ -1,7 +1,5 @@
 import { FlatList, Image, Text, View } from 'react-native'
 import { TouchableOpacity } from 'react-native-gesture-handler'
-import keyboards from '../data/keyboards.json'
-import mouses from '../data/mouses.json'
 
 export const Article = ({
   navigation,
@@ -46,67 +44,63 @@ export const Article = ({
       }
     }
     return (
-      <TouchableOpacity
-        onPress={() =>
-          navigation.navigate('Detail', {
-            payload: item,
-          })
-        }
-      >
-        <View
-          style={{
-            flex: 1 / 2,
-            margin: 3,
-            width: 190,
-            height: 180,
-          }}
+      <View style={{ backgroundColor: '#fff' }}>
+        <TouchableOpacity
+          onPress={() =>
+            navigation.navigate('Detail', {
+              payload: item,
+            })
+          }
         >
           <View
             style={{
-              alignItems: 'center',
-              justifyContent: 'center',
-              backgroundColor: '#fafafa61',
-              padding: 10,
-              shadowColor: '#efefef',
-              shadowOpacity: 1,
-              shadowOffset: { width: 0, height: 0 },
-              shadowRadius: 30,
+              flex: 1 / 2,
+              margin: 3,
+              width: 190,
               elevation: 2,
-              borderTopEndRadius: 5,
-              borderTopStartRadius: 5,
             }}
           >
-            <Image
-              source={{ uri: item.image }}
+            <View
               style={{
-                width: 180,
-                height: 100,
-
-                overflow: 'visible',
-              }}
-            />
-          </View>
-          <View
-            style={{
-              backgroundColor: '#F0F0F0',
-              paddingHorizontal: 10,
-              paddingVertical: 5,
-              borderBottomEndRadius: 5,
-              borderBottomStartRadius: 5,
-            }}
-          >
-            <Text
-              style={{
-                fontFamily: 'HelveticaNeueLTPro-Md',
+                alignItems: 'center',
+                backgroundColor: '#FCFCFC',
+                borderTopEndRadius: 5,
+                borderTopStartRadius: 5,
+                borderBottomColor: '#1f1f1f1f',
+                borderBottomWidth: 1,
               }}
             >
-              {item.name}
-            </Text>
-
-            <Text>{ShowPrice()}</Text>
+              <Image
+                source={{ uri: item.image }}
+                style={{
+                  width: 200,
+                  height: 120,
+                  marginVertical: 5,
+                  resizeMode: 'contain',
+                }}
+              />
+            </View>
+            <View
+              style={{
+                backgroundColor: '#F0F0F0',
+                paddingHorizontal: 10,
+                paddingVertical: 5,
+                borderBottomEndRadius: 5,
+                borderBottomStartRadius: 5,
+              }}
+            >
+              <Text
+                style={{
+                  fontFamily: 'HelveticaNeueLTPro-Md',
+                }}
+              >
+                {item.name}
+              </Text>
+              <Text>{ShowPrice()}</Text>
+            </View>
           </View>
-        </View>
-      </TouchableOpacity>
+        </TouchableOpacity>
+      </View>
     )
   }
 

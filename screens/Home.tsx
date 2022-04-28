@@ -1,6 +1,4 @@
-import { Circle, CircleSlashed, ShoppingCart, Square } from 'lucide-react'
 import { ImageBackground, Text, View } from 'react-native'
-import { TouchableOpacity } from 'react-native-gesture-handler'
 export const Home = () => {
   return (
     <ImageBackground
