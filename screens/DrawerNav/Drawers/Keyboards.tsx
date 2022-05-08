@@ -1,17 +1,16 @@
 import { useEffect, useState } from 'react'
 import { Text, View, FlatList } from 'react-native'
 import { Article } from '../../../components/Article'
+import { Ip } from '../../../utils/Ip'
 
-export const Cooling = ({ navigation }: { navigation: any }) => {
+export const Keyboards = ({ navigation }: { navigation: any }) => {
   const [data, setData] = useState<Article[]>()
 
   useEffect(() => {
     const fetchData = async () => {
-      const res = await fetch(
-        `http://172.30.96.43:5000/articles/category/Cooling`,
-      )
+      const res = await fetch(`${Ip.ip}/articles/category/Keyboard`)
       const json = await res.json()
-      console.log(json)
+      // console.log(json)
       setData(json)
     }
     fetchData()
@@ -26,7 +25,7 @@ export const Cooling = ({ navigation }: { navigation: any }) => {
           padding: 5,
         }}
       >
-        Cooling
+        Keyboards
       </Text>
 
       <Article navigation={navigation} data={data} />

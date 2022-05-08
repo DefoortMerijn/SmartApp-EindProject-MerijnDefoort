@@ -1,5 +1,7 @@
+import { NavigationProp, useNavigation } from '@react-navigation/native'
 import { FlatList, Image, Text, View } from 'react-native'
 import { TouchableOpacity } from 'react-native-gesture-handler'
+import { StackParamList } from '../screens/MainStack'
 
 export const Article = ({
   navigation,
@@ -8,6 +10,8 @@ export const Article = ({
   navigation: any
   data: any
 }) => {
+  const nav = useNavigation<NavigationProp<StackParamList, 'MainDrawer'>>()
+
   const renderItem = ({ item }: { item: Article }) => {
     console.log(item.image)
 
@@ -44,11 +48,11 @@ export const Article = ({
       }
     }
     return (
-      <View style={{ backgroundColor: '#fff' }}>
+      <View>
         <TouchableOpacity
           onPress={() =>
-            navigation.navigate('Detail', {
-              payload: item,
+            nav.navigate('Detail', {
+              article: item,
             })
           }
         >
