@@ -4,7 +4,7 @@ import {
 } from '@react-navigation/drawer'
 import { Home } from '../Home'
 import 'react-native-gesture-handler'
-import { Lights } from './Drawers/Lights' 
+import { Lights } from './Drawers/Lights'
 import { Ram } from './Drawers/Ram'
 import { PowerSupplies } from './Drawers/PowerSupply'
 import Header from '../../components/Header'
@@ -14,6 +14,7 @@ import { NavigationProp, useNavigation } from '@react-navigation/native'
 import { StackParamList } from '../MainStack'
 import { Mice } from './Drawers/Mice'
 import { Keyboards } from './Drawers/Keyboards'
+
 export type DrawerParamList = {
   Home: undefined
   Keyboards: undefined
@@ -45,10 +46,11 @@ export const MainDrawer = () => {
     drawerActiveTintColor: '#000000',
     headerRight: () => {
       const nav = useNavigation<NavigationProp<StackParamList, 'MainDrawer'>>()
+
       return (
         <Icons
           onPressCart={() => nav.navigate('Cart')}
-          onPressProfile={() => nav.navigate('Profile')}
+          onPressProfile={() => nav.navigate('Login')}
         />
       )
     },

@@ -122,7 +122,7 @@ export const Cart = ({
           alignItems: 'center',
         }}
       >
-        <TouchableOpacity onPress={() => nav.goBack()}>
+        <TouchableOpacity onPress={() => nav.navigate('MainDrawer')}>
           <Icon
             name="close"
             style={{ alignSelf: 'flex-start', marginBottom: 5 }}

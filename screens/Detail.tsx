@@ -112,9 +112,9 @@ export const Detail = ({
           }}
         >
           <View>
-            <TouchableOpacity onPress={() => nav.goBack()}>
+            <TouchableOpacity onPress={() => nav.navigate('MainDrawer')}>
               <Icon
-                name="arrow-back"
+                name="close"
                 style={{ alignSelf: 'flex-start', marginBottom: 5 }}
               />
             </TouchableOpacity>

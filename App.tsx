@@ -7,11 +7,12 @@ import { Text } from 'react-native'
 import { MainStack } from './screens/MainStack'
 import { CartContext } from './context/CartContext'
 import { useState } from 'react'
-
-
+import { AuthContext } from './context/AuthContext'
+import { User } from 'lucide-react'
 
 export default function App() {
   const [cart, setCart] = useState<CartItem[]>([])
+  const [user, setUser] = useState<User>()
 
   let [fontsLoader] = useFonts({
     'bebas-neue-regular': require('./assets/fonts/BebasNeue-Regular.ttf'),
@@ -30,11 +31,13 @@ export default function App() {
   return (
     <SafeAreaProvider>
       <StatusBar style="dark" backgroundColor="#E9E600" />
-      <CartContext.Provider value={{ cart, setCart }}>
-        <NavigationContainer>
-          <MainStack />
-        </NavigationContainer>
-      </CartContext.Provider>
+      <AuthContext.Provider value={{ user, setUser }}>
+        <CartContext.Provider value={{ cart, setCart }}>
+          <NavigationContainer>
+            <MainStack />
+          </NavigationContainer>
+        </CartContext.Provider>
+      </AuthContext.Provider>
     </SafeAreaProvider>
   )
 }
