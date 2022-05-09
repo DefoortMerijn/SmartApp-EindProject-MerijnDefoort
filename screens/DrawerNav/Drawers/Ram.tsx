@@ -3,7 +3,7 @@ import { Text, View } from 'react-native'
 import { SafeAreaView } from 'react-native-safe-area-context'
 import { Article } from '../../../components/Article'
 import { DrawerStyle } from '../../../styles/DrawerStyle'
-import { PageStyle } from '../../../styles/PageStyle'
+import { PageStyle } from '../../../styles/globalStyles/PageStyle'
 import { Ip } from '../../../utils/Ip'
 
 export const Ram = () => {

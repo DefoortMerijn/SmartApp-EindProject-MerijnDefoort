@@ -9,7 +9,7 @@ import { Icon } from 'react-native-elements'
 import { SafeAreaView } from 'react-native-safe-area-context'
 import { useAuth } from '../context/AuthContext'
 import { LoginServiceStyle } from '../styles/LoginServiceStyle'
-import { PageStyle } from '../styles/PageStyle'
+import { PageStyle } from '../styles/globalStyles/PageStyle'
 import { Ip } from '../utils/Ip'
 import { StackParamList } from './MainStack'
 

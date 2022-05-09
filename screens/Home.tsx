@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import { Image, ImageBackground, Linking, Text, View } from 'react-native'
 import { ScrollView, TouchableOpacity } from 'react-native-gesture-handler'
 import { HomeStyle } from '../styles/HomeStyle'
-import { PageStyle } from '../styles/PageStyle'
+import { PageStyle } from '../styles/globalStyles/PageStyle'
 import { Ip } from '../utils/Ip'
 
 export const Home = () => {

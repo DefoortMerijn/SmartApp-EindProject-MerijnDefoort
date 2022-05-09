@@ -8,7 +8,7 @@ import { Icon } from 'react-native-elements'
 import { TouchableOpacity } from 'react-native-gesture-handler'
 import { SafeAreaView } from 'react-native-safe-area-context'
 import { DetailStyle } from '../styles/DetailStyle'
-import { PageStyle } from '../styles/PageStyle'
+import { PageStyle } from '../styles/globalStyles/PageStyle'
 import { StackParamList } from './MainStack'
 
 export const Detail = ({

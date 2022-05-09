@@ -3,7 +3,7 @@ import { Image, Text, TouchableOpacity, View } from 'react-native'
 import { Icon } from 'react-native-elements'
 import { SafeAreaView } from 'react-native-safe-area-context'
 import { useAuth } from '../context/AuthContext'
-import { PageStyle } from '../styles/PageStyle'
+import { PageStyle } from '../styles/globalStyles/PageStyle'
 import { ProfileStyle } from '../styles/ProfileStyle'
 import { StackParamList } from './MainStack'
 

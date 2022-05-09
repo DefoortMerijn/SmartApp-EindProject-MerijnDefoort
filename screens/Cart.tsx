@@ -10,7 +10,7 @@ import { Icon } from 'react-native-elements'
 import { SafeAreaView } from 'react-native-safe-area-context'
 import { useCartContext } from '../context/CartContext'
 import { CartStyle } from '../styles/CartStyle'
-import { PageStyle } from '../styles/PageStyle'
+import { PageStyle } from '../styles/globalStyles/PageStyle'
 import { StackParamList } from './MainStack'
 
 export const Cart = ({

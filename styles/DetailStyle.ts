@@ -1,5 +1,5 @@
 import { StyleSheet } from 'react-native'
-import color from './color'
+import color from './globalStyles/color'
 
 export const DetailStyle = StyleSheet.create({
   Image: {
