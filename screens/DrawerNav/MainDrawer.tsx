@@ -1,7 +1,4 @@
-import {
-  createDrawerNavigator,
-  DrawerNavigationOptions,
-} from '@react-navigation/drawer'
+import { createDrawerNavigator } from '@react-navigation/drawer'
 import { Home } from '../Home'
 import 'react-native-gesture-handler'
 import { Lights } from './Drawers/Lights'
@@ -28,13 +25,7 @@ export type DrawerParamList = {
 const Drawer = createDrawerNavigator<DrawerParamList>()
 
 export const MainDrawer = () => {
-  const screenoptions = ({
-    route,
-    navigation,
-  }: {
-    route: any
-    navigation: any
-  }) => ({
+  const screenoptions = () => ({
     drawerStyle: {
       backgroundColor: '#262626',
       paddingTop: 60,

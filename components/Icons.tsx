@@ -1,5 +1,5 @@
 import { View } from 'react-native'
-import { Badge, Icon, withBadge } from 'react-native-elements'
+import { Icon } from 'react-native-elements'
 import { TouchableOpacity } from 'react-native-gesture-handler'
 
 export default ({
@@ -22,13 +22,13 @@ export default ({
       <TouchableOpacity onPress={onPressCart}>
         <Icon
           name="shopping-cart"
-          color={'white'}
-          reverseColor={'black'}
+          color={'#fff'}
+          reverseColor={'#000'}
           size={30}
         />
       </TouchableOpacity>
       <TouchableOpacity onPress={onPressProfile} style={{ marginLeft: 20 }}>
-        <Icon name="person" color={'white'} reverseColor={'black'} size={30} />
+        <Icon name="person" color={'#fff'} reverseColor={'#000'} size={30} />
       </TouchableOpacity>
     </View>
   )

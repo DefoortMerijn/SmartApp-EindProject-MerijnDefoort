@@ -4,13 +4,13 @@ import {
   useIsFocused,
   useNavigation,
 } from '@react-navigation/native'
-import { Cross } from 'lucide-react'
 import { useEffect, useState } from 'react'
 import { Image, ScrollView, Text, TouchableOpacity, View } from 'react-native'
 import { Icon } from 'react-native-elements'
-import ListItemSwipeable from 'react-native-elements/dist/list/ListItemSwipeable'
 import { SafeAreaView } from 'react-native-safe-area-context'
 import { useCartContext } from '../context/CartContext'
+import { CartStyle } from '../styles/CartStyle'
+import { PageStyle } from '../styles/PageStyle'
 import { StackParamList } from './MainStack'
 
 export const Cart = ({
@@ -82,39 +82,12 @@ export const Cart = ({
 
   const ShowPrice = (data: Article) => {
     if (data.salePercentage === 0) {
-      return (
-        <Text
-          style={{
-            fontFamily: 'GothamSSm-Medium',
-            fontSize: 12,
-            paddingLeft: 20,
-          }}
-        >
-          €{data.price.toFixed(2)}
-        </Text>
-      )
+      return <Text style={CartStyle.Price}>€{data.price.toFixed(2)}</Text>
     } else {
       return (
         <View style={{ flexDirection: 'row' }}>
-          <Text
-            style={{
-              color: '#bbbbbb',
-              fontFamily: 'GothamSSm-Medium',
-              fontSize: 12,
-              paddingLeft: 20,
-              textDecorationLine: 'line-through',
-              marginRight: 5,
-            }}
-          >
-            €{data.price.toFixed(2)}
-          </Text>
-          <Text
-            style={{
-              fontFamily: 'GothamSSm-Medium',
-              color: '#b30505',
-              fontSize: 12,
-            }}
-          >
+          <Text style={CartStyle.OldPrice}>€{data.price.toFixed(2)}</Text>
+          <Text style={CartStyle.NewPrice}>
             €
             {(data.price - (data.price * data.salePercentage) / 100).toFixed(2)}
           </Text>
@@ -124,31 +97,14 @@ export const Cart = ({
   }
 
   return (
-    <SafeAreaView style={{ flex: 1, padding: 15 }}>
-      <View
-        style={{
-          flexDirection: 'row',
-          justifyContent: 'space-between',
-          alignItems: 'center',
-        }}
-      >
+    <SafeAreaView style={PageStyle.Container}>
+      <View style={PageStyle.Header}>
         <TouchableOpacity onPress={() => nav.navigate('MainDrawer')}>
-          <Icon
-            name="close"
-            style={{ alignSelf: 'flex-start', marginBottom: 5 }}
-          />
+          <Icon name="close" style={PageStyle.Icon} />
         </TouchableOpacity>
-        <Text style={{ fontFamily: 'bebas-neue-regular', fontSize: 32 }}>
-          REVIEW YOUR CART
-        </Text>
+        <Text style={PageStyle.Title}>REVIEW YOUR CART</Text>
       </View>
-
-      <ScrollView
-        style={{
-          marginTop: 15,
-          maxHeight: '80%',
-        }}
-      >
+      <ScrollView style={CartStyle.ItemView}>
         {cart.map((item) => {
           index++
           return (
@@ -159,28 +115,13 @@ export const Cart = ({
                 marginBottom: 15,
               }}
             >
-              <View
-                style={{
-                  backgroundColor: '#E4E5E7',
-                  alignItems: 'center',
-                  marginRight: 10,
-                  height: 100,
-                  width: 100,
-                }}
-              >
+              <View>
                 <Image
                   source={{ uri: item.article.image }}
-                  style={{
-                    width: 120,
-                    height: 80,
-                    marginVertical: 5,
-                    resizeMode: 'contain',
-                  }}
+                  style={CartStyle.Image}
                 />
               </View>
-              <View
-                style={{ flexDirection: 'column', width: '70%', padding: 5 }}
-              >
+              <View style={CartStyle.InfoView}>
                 <Text
                   style={{
                     fontFamily: 'GothamSSm-Medium',
@@ -188,35 +129,13 @@ export const Cart = ({
                 >
                   {item.article.name}
                 </Text>
-                <View
-                  style={{
-                    flexDirection: 'row',
-                    marginVertical: 5,
-                    justifyContent: 'space-between',
-                  }}
-                >
-                  <Text
-                    style={{
-                      color: 'grey',
-                      fontFamily: 'GothamSSm-Light',
-                      fontSize: 11,
-                    }}
-                  >
-                    Units: {item.quantity}
-                  </Text>
+                <View style={CartStyle.PUView}>
+                  <Text style={CartStyle.Units}>Units: {item.quantity}</Text>
                   <Text>{ShowPrice(item.article)}</Text>
                 </View>
 
                 <TouchableOpacity onPress={() => removeItem(item)}>
-                  <Text
-                    style={{
-                      fontFamily: 'GothamSSm-Medium',
-                      fontSize: 12,
-                      color: 'grey',
-                    }}
-                  >
-                    Remove
-                  </Text>
+                  <Text style={CartStyle.Remove}>Remove</Text>
                 </TouchableOpacity>
               </View>
             </View>
@@ -224,14 +143,7 @@ export const Cart = ({
         })}
       </ScrollView>
       <View>
-        <Text
-          style={{
-            color: 'black',
-            marginTop: 45,
-            marginBottom: 15,
-            fontFamily: 'GothamSSm-Light',
-          }}
-        >
+        <Text style={CartStyle.Total}>
           Total Price:{' '}
           {
             <Text style={{ fontFamily: 'GothamSSm-Bold' }}>
@@ -242,24 +154,10 @@ export const Cart = ({
       </View>
       <View style={{ marginBottom: 0 }}>
         <TouchableOpacity
-          style={{
-            backgroundColor: 'black',
-            padding: 10,
-            width: '100%',
-            alignItems: 'center',
-            justifyContent: 'center',
-          }}
+          style={CartStyle.CheckoutButton}
           onPress={() => console.log('Checkout')}
         >
-          <Text
-            style={{
-              color: 'white',
-              textAlign: 'center',
-              fontFamily: 'GothamSSm-Medium',
-            }}
-          >
-            Checkout
-          </Text>
+          <Text style={CartStyle.CheckoutButtonText}>Checkout</Text>
         </TouchableOpacity>
       </View>
     </SafeAreaView>

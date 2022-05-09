@@ -1,5 +1,10 @@
+import { useEffect, useState } from 'react'
 import { Image, ImageBackground, Linking, Text, View } from 'react-native'
 import { ScrollView, TouchableOpacity } from 'react-native-gesture-handler'
+import { HomeStyle } from '../styles/HomeStyle'
+import { PageStyle } from '../styles/PageStyle'
+import { Ip } from '../utils/Ip'
+
 export const Home = () => {
   const toLink = (url: string) => {
     Linking.canOpenURL(url).then(() => {
@@ -10,28 +15,16 @@ export const Home = () => {
     <ImageBackground
       source={require('../assets/Corsair_bg.png')}
       resizeMode="cover"
-      style={{
-        width: '100%',
-        height: '100%',
-      }}
+      style={HomeStyle.Bg}
     >
-      <View style={{ padding: 10, maxHeight: '99%' }}>
-        <Text
-          style={{
-            marginTop: 10,
-            fontFamily: 'GothamSSm-Bold',
-            color: '#fff',
-            fontSize: 24,
-          }}
-        >
-          Welcome
-        </Text>
+      <View style={PageStyle.Container}>
         <ScrollView style={{ marginTop: 10 }}>
-          <View
-            style={{
-              alignItems: 'center',
-            }}
-          >
+          <Text style={HomeStyle.Title}>Welcome</Text>
+          <Text style={HomeStyle.Text}>
+            Thank you for using the Corsair Store on your mobile device.
+          </Text>
+          <View style={HomeStyle.Line}></View>
+          <View style={HomeStyle.ImageContainer}>
             <TouchableOpacity
               onPress={() =>
                 toLink(
@@ -41,12 +34,7 @@ export const Home = () => {
             >
               <Image
                 source={require('../assets/elgato-banner.png')}
-                style={{
-                  width: 500,
-                  height: 220,
-                  marginTop: 10,
-                  resizeMode: 'contain',
-                }}
+                style={HomeStyle.Image}
               />
             </TouchableOpacity>
             <TouchableOpacity
@@ -57,13 +45,13 @@ export const Home = () => {
             >
               <Image
                 source={require('../assets/gamerCoach-banner.png')}
-                style={{ width: 550, height: 220, resizeMode: 'contain' }}
+                style={HomeStyle.Image}
               />
             </TouchableOpacity>
             <View style={{ marginTop: 20 }}>
               <Image
                 source={require('../assets/OriginPC-banner.png')}
-                style={{ width: 500, height: 220, resizeMode: 'contain' }}
+                style={HomeStyle.Image}
               />
             </View>
           </View>

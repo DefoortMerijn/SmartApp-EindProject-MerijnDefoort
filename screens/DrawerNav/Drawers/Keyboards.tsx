@@ -1,9 +1,10 @@
 import { useEffect, useState } from 'react'
-import { Text, View, FlatList } from 'react-native'
+import { Text, View } from 'react-native'
 import { Article } from '../../../components/Article'
+import { DrawerStyle } from '../../../styles/DrawerStyle'
 import { Ip } from '../../../utils/Ip'
 
-export const Keyboards = ({ navigation }: { navigation: any }) => {
+export const Keyboards = () => {
   const [data, setData] = useState<Article[]>()
 
   useEffect(() => {
@@ -15,20 +16,11 @@ export const Keyboards = ({ navigation }: { navigation: any }) => {
     }
     fetchData()
   }, [])
-  return (
-    <View style={{ backgroundColor: '#ffffff', height: '100%' }}>
-      <Text
-        style={{
-          fontFamily: 'GothamSSm-Bold',
-          marginBottom: 10,
-          fontSize: 24,
-          padding: 5,
-        }}
-      >
-        Keyboards
-      </Text>
 
-      <Article navigation={navigation} data={data} />
+  return (
+    <View style={DrawerStyle.Background}>
+      <Text style={DrawerStyle.Title}>Keyboards</Text>
+      <Article data={data} />
     </View>
   )
 }

@@ -6,8 +6,10 @@ import {
 import { useEffect, useState } from 'react'
 import { View, Text, TextInput, TouchableOpacity } from 'react-native'
 import { Icon } from 'react-native-elements'
-import { SafeAreaProvider, SafeAreaView } from 'react-native-safe-area-context'
-import { AuthContext, useAuth } from '../context/AuthContext'
+import { SafeAreaView } from 'react-native-safe-area-context'
+import { useAuth } from '../context/AuthContext'
+import { LoginServiceStyle } from '../styles/LoginServiceStyle'
+import { PageStyle } from '../styles/PageStyle'
 import { Ip } from '../utils/Ip'
 import { StackParamList } from './MainStack'
 
@@ -25,21 +27,17 @@ export const Login = () => {
     }
   }, [isFocused])
 
-  const LoginTo = async (enteredEmail: string, enteredPassword: string) => {
-    console.log(
-      'email en password:',
-      JSON.stringify({ email: enteredEmail, password: enteredPassword }),
-    )
+  const LoginTo = async () => {
     const res = await fetch(`${Ip.ip}/auth`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
-        email: enteredEmail,
-        password: enteredPassword,
+        email: userEmail,
+        password: userPassword,
       }),
     })
     console.log(res.status)
-    if (enteredEmail === '' || enteredPassword === '') {
+    if (userEmail === '' || userPassword === '') {
       alert('Please fill all the fields')
     }
     if (res.status === 404) {
@@ -60,113 +58,45 @@ export const Login = () => {
   }
 
   return (
-    <SafeAreaView style={{ flex: 1, paddingHorizontal: 15 }}>
-      <View
-        style={{
-          flexDirection: 'row',
-          alignItems: 'center',
-          justifyContent: 'space-between',
-          width: '100%',
-          height: 60,
-        }}
-      >
+    <SafeAreaView style={PageStyle.Container}>
+      <View style={PageStyle.Header}>
         <TouchableOpacity onPress={() => nav.navigate('MainDrawer')}>
-          <Icon
-            name="close"
-            style={{
-              alignSelf: 'flex-start',
-            }}
-          />
+          <Icon name="close" style={PageStyle.Icon} />
         </TouchableOpacity>
 
-        <Text
-          style={{
-            fontFamily: 'bebas-neue-regular',
-            fontSize: 32,
-            color: 'black',
-          }}
-        >
-          Login
-        </Text>
+        <Text style={PageStyle.Title}>Login</Text>
       </View>
-      <View
-        style={{
-          flex: 1,
-          justifyContent: 'center',
-          alignItems: 'center',
-          width: '100%',
-          padding: 10,
-        }}
-      >
+      <View style={LoginServiceStyle.FormView}>
         <View>
           <View>
-            <Text style={{ marginBottom: 5, fontFamily: 'GothamSSm-Bold' }}>
-              Email
-            </Text>
+            <Text style={LoginServiceStyle.Label}>Email</Text>
             <TextInput
               placeholder="ex. test@test.com"
               onChangeText={(EmailInput) => setUserEmail(EmailInput)}
-              style={{
-                minWidth: '90%',
-                height: 40,
-                borderColor: 'gray',
-                borderWidth: 1,
-                marginBottom: 10,
-                padding: 10,
-                borderRadius: 5,
-                fontFamily: 'GothamSSm-Light',
-              }}
+              style={LoginServiceStyle.Input}
             />
           </View>
           <View>
-            <Text style={{ marginBottom: 5, fontFamily: 'GothamSSm-Bold' }}>
-              Password
-            </Text>
+            <Text style={LoginServiceStyle.Label}>Password</Text>
 
             <TextInput
               placeholder="ex. 123456"
               secureTextEntry={true}
               onChangeText={(PasswordInput) => setUserPassword(PasswordInput)}
-              style={{
-                minWidth: '90%',
-                height: 40,
-                borderColor: 'gray',
-                borderWidth: 1,
-                padding: 10,
-                borderRadius: 5,
-                fontFamily: 'GothamSSm-Light',
-              }}
+              style={LoginServiceStyle.Input}
             />
           </View>
         </View>
         <TouchableOpacity
           onPress={() => {
-            LoginTo(userEmail, userPassword)
+            LoginTo()
           }}
-          style={{
-            marginTop: 30,
-            marginBottom: 10,
-            backgroundColor: 'black',
-            padding: 10,
-            width: '90%',
-            alignItems: 'center',
-            justifyContent: 'center',
-          }}
+          style={LoginServiceStyle.SubmitButton}
         >
-          <Text
-            style={{
-              color: 'white',
-              textAlign: 'center',
-              fontFamily: 'GothamSSm-Medium',
-            }}
-          >
-            Login
-          </Text>
+          <Text style={LoginServiceStyle.SubmitButtonText}>Login</Text>
         </TouchableOpacity>
         <TouchableOpacity onPress={() => nav.navigate('Register')}>
-          <Text style={{ fontFamily: 'GothamSSm-Light', fontSize: 12 }}>
-            Don't have an account
-          </Text>
+          <Text style={LoginServiceStyle.Link}>Don't have an account</Text>
         </TouchableOpacity>
       </View>
     </SafeAreaView>

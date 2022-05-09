@@ -2,14 +2,9 @@ import { NavigationProp, useNavigation } from '@react-navigation/native'
 import { FlatList, Image, Text, View } from 'react-native'
 import { TouchableOpacity } from 'react-native-gesture-handler'
 import { StackParamList } from '../screens/MainStack'
+import tw from 'twrnc'
 
-export const Article = ({
-  navigation,
-  data,
-}: {
-  navigation: any
-  data: any
-}) => {
+export const Article = ({ data }: { data: any }) => {
   const nav = useNavigation<NavigationProp<StackParamList, 'MainDrawer'>>()
 
   const renderItem = ({ item }: { item: Article }) => {
@@ -48,7 +43,7 @@ export const Article = ({
       }
     }
     return (
-      <View>
+      <View style={{ margin: 4 }}>
         <TouchableOpacity
           onPress={() =>
             nav.navigate('Detail', {
@@ -59,15 +54,13 @@ export const Article = ({
           <View
             style={{
               flex: 1 / 2,
-              margin: 3,
               width: 190,
-              elevation: 2,
             }}
           >
             <View
               style={{
                 alignItems: 'center',
-                backgroundColor: '#FCFCFC',
+                backgroundColor: '#F9F9F9',
                 borderTopEndRadius: 5,
                 borderTopStartRadius: 5,
                 borderBottomColor: '#1f1f1f1f',
