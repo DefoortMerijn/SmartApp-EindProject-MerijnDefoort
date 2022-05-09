@@ -22,7 +22,7 @@ export const Cart = ({
 }) => {
   const nav = useNavigation<NavigationProp<StackParamList, 'MainDrawer'>>()
   const { cart, setCart } = useCartContext()
-  const [total, setTotal] = useState<number>()
+  const [total, setTotal] = useState<number | undefined>()
   const isFocused = useIsFocused()
   let index = 0
 
@@ -43,7 +43,14 @@ export const Cart = ({
     }
     // update total
     setTotal(
-      cart.reduce((acc, item) => acc + item.article.price * item.quantity, 0),
+      cart.reduce(
+        (acc, item) =>
+          acc +
+          (item.article.price -
+            (item.article.price * item.article.salePercentage) / 100) *
+            item.quantity,
+        0,
+      ),
     )
     console.log('cart: ', cart)
   }, [isFocused])
@@ -93,6 +100,8 @@ export const Cart = ({
             style={{
               color: '#bbbbbb',
               fontFamily: 'GothamSSm-Medium',
+              fontSize: 12,
+              paddingLeft: 20,
               textDecorationLine: 'line-through',
               marginRight: 5,
             }}
@@ -102,7 +111,8 @@ export const Cart = ({
           <Text
             style={{
               fontFamily: 'GothamSSm-Medium',
-              color: '#ff5847',
+              color: '#b30505',
+              fontSize: 12,
             }}
           >
             €
@@ -222,7 +232,12 @@ export const Cart = ({
             fontFamily: 'GothamSSm-Light',
           }}
         >
-          Total Price: €{total}
+          Total Price:{' '}
+          {
+            <Text style={{ fontFamily: 'GothamSSm-Bold' }}>
+              €{total?.toFixed(2)}
+            </Text>
+          }
         </Text>
       </View>
       <View style={{ marginBottom: 0 }}>

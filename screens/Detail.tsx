@@ -88,7 +88,7 @@ export const Detail = ({
           </Text>
           <Text
             style={{
-              color: '#ff5847',
+              color: '#b30505',
               fontSize: 18,
               fontFamily: 'GothamSSm-Light',
             }}

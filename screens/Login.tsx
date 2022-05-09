@@ -144,23 +144,29 @@ export const Login = () => {
             LoginTo(userEmail, userPassword)
           }}
           style={{
-            marginTop: 20,
+            marginTop: 30,
             marginBottom: 10,
+            backgroundColor: 'black',
             padding: 10,
-            borderRadius: 10,
-            backgroundColor: '#E9E600',
+            width: '90%',
             alignItems: 'center',
-            width: '70%',
-            alignSelf: 'center',
-            elevation: 2,
+            justifyContent: 'center',
           }}
         >
-          <Text style={{ fontFamily: 'GothamSSm-Bold', fontSize: 14 }}>
+          <Text
+            style={{
+              color: 'white',
+              textAlign: 'center',
+              fontFamily: 'GothamSSm-Medium',
+            }}
+          >
             Login
           </Text>
         </TouchableOpacity>
         <TouchableOpacity onPress={() => nav.navigate('Register')}>
-          <Text>Don't have an account</Text>
+          <Text style={{ fontFamily: 'GothamSSm-Light', fontSize: 12 }}>
+            Don't have an account
+          </Text>
         </TouchableOpacity>
       </View>
     </SafeAreaView>

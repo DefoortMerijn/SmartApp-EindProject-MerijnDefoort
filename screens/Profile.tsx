@@ -52,7 +52,7 @@ export const Profile = ({
           Profile
         </Text>
       </View>
-      <View style={{ flex: 1, marginTop: 20, padding: 10 }}>
+      <View style={{ flex: 1, marginTop: 20 }}>
         <Image
           source={require('../assets/blank-profile-picture.png')}
           style={{
@@ -123,17 +123,26 @@ export const Profile = ({
           }}
           style={{
             marginTop: 20,
-            marginBottom: 20,
+            marginBottom: 10,
+            backgroundColor: 'black',
             padding: 10,
-            borderRadius: 10,
-            backgroundColor: '#E9E600',
+            position: 'absolute',
+            bottom: 0,
+            left: 0,
+            right: 0,
+            width: '100%',
             alignItems: 'center',
-            width: '70%',
             alignSelf: 'center',
-            elevation: 2,
+            justifyContent: 'center',
           }}
         >
-          <Text style={{ fontFamily: 'GothamSSm-Bold', fontSize: 14 }}>
+          <Text
+            style={{
+              color: 'white',
+              textAlign: 'center',
+              fontFamily: 'GothamSSm-Medium',
+            }}
+          >
             Logout
           </Text>
         </TouchableOpacity>

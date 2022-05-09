@@ -36,7 +36,7 @@ export const Article = ({
               €{item.price.toFixed(2)}
             </Text>
             <Text
-              style={{ color: '#ff5847', fontFamily: 'HelveticaNeueLTPro-Lt' }}
+              style={{ color: '#b30505', fontFamily: 'HelveticaNeueLTPro-Lt' }}
             >
               €
               {(item.price - (item.price * item.salePercentage) / 100).toFixed(
